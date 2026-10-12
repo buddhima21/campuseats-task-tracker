@@ -3,8 +3,7 @@ import useFetch from "../hooks/useFetch";
 
 const DishDetailPage = () => {
   const { id } = useParams();
-  const { data: dishes, isLoading, error } = useFetch("/menu.json");
-  const dish = dishes?.find((item) => String(item.id) === id);
+  const { data: dish, isLoading, error } = useFetch(`/menu/${id}`);
 
   if (isLoading) return <div className="state-card"><span className="loading-dot" /><p>Loading dish details...</p></div>;
   if (error || !dish) return <div className="state-card"><h2>Dish not found</h2><Link className="button" to="/">Back to menu</Link></div>;

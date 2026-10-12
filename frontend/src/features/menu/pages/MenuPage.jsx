@@ -4,7 +4,7 @@ import MenuList from "../components/MenuLists";
 import useFetch from "../hooks/useFetch";
 
 const MenuPage = () => {
-  const { data: dishes, isLoading, error } = useFetch("/menu.json");
+  const { data: dishes, isLoading, error } = useFetch("/menu");
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All");
   const debounced = useDebounce(query, 400);
